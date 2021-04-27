@@ -1,21 +1,16 @@
 {
-	"name": "visudata",
-	"displayName": "visudata",
-	"publisher": "krispyi2",
-	"description": "",
+  "name": "visudata",
+	"displayName": "VisuData",
+	"description": "visually edit files for markup languages and the like",
 	"version": "0.0.1",
 	"engines": {
 		"vscode": "^1.55.0"
 	},
-	"repository": {
-        "type": "git",
-        "url": "https://github.com/crispyi2/visudata"
-    },
 	"categories": [
 		"Other"
 	],
 	"activationEvents": [
-		"onCommand:visudata.helloWorld"
+        "onCommand:visudata.helloWorld"
 	],
 	"main": "./dist/extension.js",
 	"contributes": {
@@ -27,17 +22,15 @@
 		]
 	},
 	"scripts": {
-		"vscode:prepublish": "npm run package",
+		"vscode:prepublish": "yarn run package",
 		"compile": "webpack",
 		"watch": "webpack --watch",
-		"package": "webpack --mode development --devtool hidden-source-map",
-		"build": "mkdir -p dist && vsce package --out dist/test.vsix",
+		"package": "webpack --mode production --devtool hidden-source-map",
 		"test-compile": "tsc -p ./",
 		"test-watch": "tsc -watch -p ./",
-		"pretest": "npm run test-compile && npm run lint",
+		"pretest": "yarn run test-compile && yarn run lint",
 		"lint": "eslint src --ext ts",
-		"test": "node ./out/test/runTest.js",
-		"coder-server": "sudo rm -r -f /home/coder/.local/share/code-server/extensions/visudata && sudo cp ./ /home/coder/.local/share/code-server/extensions/visudata"
+		"test": "node ./out/test/runTest.js"
 	},
 	"devDependencies": {
 		"@types/vscode": "^1.55.0",
