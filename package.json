@@ -1,5 +1,5 @@
 {
-  "name": "visudata",
+	"name": "visudata",
 	"displayName": "VisuData",
 	"description": "visually edit files for markup languages and the like",
 	"version": "0.0.1",
@@ -10,7 +10,7 @@
 		"Other"
 	],
 	"activationEvents": [
-        "onCommand:visudata.helloWorld"
+		"onCommand:visudata.helloWorld"
 	],
 	"main": "./dist/extension.js",
 	"contributes": {
@@ -22,13 +22,13 @@
 		]
 	},
 	"scripts": {
-		"vscode:prepublish": "yarn run package",
+		"vscode:prepublish": "npm run package",
 		"compile": "webpack",
 		"watch": "webpack --watch",
 		"package": "webpack --mode production --devtool hidden-source-map",
 		"test-compile": "tsc -p ./",
 		"test-watch": "tsc -watch -p ./",
-		"pretest": "yarn run test-compile && yarn run lint",
+		"pretest": "npm run test-compile && npm run lint",
 		"lint": "eslint src --ext ts",
 		"test": "node ./out/test/runTest.js"
 	},
