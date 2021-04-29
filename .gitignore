@@ -1,0 +1,13 @@
+# node modules
+
+node_modules
+
+# directories created while building/testing
+
+.vscode-test
+out
+dist
+
+# all built packages for extensions
+
+*.vsix

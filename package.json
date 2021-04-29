@@ -4,7 +4,7 @@
 	"description": "visually edit files for markup languages and the like",
 	"version": "0.0.1",
 	"engines": {
-		"vscode": "^1.55.0"
+		"vscode": "^1.54.0"
 	},
 	"categories": [
 		"Other"
@@ -17,7 +17,36 @@
 		"commands": [
 			{
 				"command": "visudata.helloWorld",
-				"title": "Hello World"
+				"title": "Visudata: Hello World"
+			},
+			{
+				"command": "visudata.start",
+				"title": "Visudata: Start"
+			},
+			{
+				"command": "visudata.openFile",
+				"title": "Visudata: Open File"
+			}
+		],
+		"customEditors": [
+			{
+				"viewType": "visudata.editor",
+				"displayName": "Visudata Editor",
+				"selector": [
+					{
+						"filenamePattern": "*.json"
+					},
+					{
+						"filenamePattern": "*.xml"
+					},
+					{
+						"filenamePattern": "*.yaml"
+					},
+					{
+						"filenamePattern": "*.bson"
+					}
+				],
+				"priority": "default"
 			}
 		]
 	},
@@ -33,7 +62,7 @@
 		"test": "node ./out/test/runTest.js"
 	},
 	"devDependencies": {
-		"@types/vscode": "^1.55.0",
+		"@types/vscode": "^1.54.0",
 		"@types/glob": "^7.1.3",
 		"@types/mocha": "^8.0.4",
 		"@types/node": "^12.11.7",
