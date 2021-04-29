@@ -1,6 +1,7 @@
 {
 	"name": "visudata",
 	"displayName": "VisuData",
+	"publisher": "crispyi2",
 	"description": "visually edit files for markup languages and the like",
 	"version": "0.0.1",
 	"engines": {
@@ -30,23 +31,24 @@
 		],
 		"customEditors": [
 			{
-				"viewType": "visudata.editor",
-				"displayName": "Visudata Editor",
+				"viewType": "visudata.jsonEditor",
+				"displayName": "Visudata Json Editor",
 				"selector": [
 					{
 						"filenamePattern": "*.json"
-					},
-					{
-						"filenamePattern": "*.xml"
-					},
-					{
-						"filenamePattern": "*.yaml"
-					},
-					{
-						"filenamePattern": "*.bson"
 					}
 				],
 				"priority": "default"
+			},
+			{
+				"viewType": "visudata.xmlEditor",
+				"displayName": "Visudata Xml Editor",
+				"priority": "default",
+				"selector": [
+					{
+						"filenamePattern": "*.xml"
+					}
+				]
 			}
 		]
 	},
