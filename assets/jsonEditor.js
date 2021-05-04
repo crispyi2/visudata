@@ -9,10 +9,28 @@
 	const vscode = acquireVsCodeApi();
 
 
-	const jsonRoot = /** @type {HTMLElement} */ (document.querySelector('.elements'));
+	const jsonDoccument = /** @type {HTMLElement} */ (document.querySelector('.editor'));
 
-	const addButtonContainer = document.querySelector('.add-button');
+	const addObjectButtonContainer = document.querySelector('.add-object-button');
 	addButtonContainer.querySelector('button').addEventListener('click', () => {
+		vscode.postMessage({
+			type: 'add'
+		});
+	})
+    const addArrayButtonContainer = document.querySelector('.add-array-button');
+	addArrayButtonContainer.querySelector('button').addEventListener('click', () => {
+		vscode.postMessage({
+			type: 'add'
+		});
+	})
+    const addBooleanButtonContainer = document.querySelector('.add-boolean-button');
+	addBooleanButtonContainer.querySelector('button').addEventListener('click', () => {
+		vscode.postMessage({
+			type: 'add'
+		});
+	})
+    const addNumberButtonContainer = document.querySelector('.add-number-button');
+	addNumberButtonContainer.querySelector('button').addEventListener('click', () => {
 		vscode.postMessage({
 			type: 'add'
 		});
@@ -31,32 +49,30 @@
 		try {
 			json = JSON.parse(text);
 		} catch {
-			jsonRoot.style.display = 'none';
+			jsonDoccument.style.display = 'none';
 			return;
 		}
-		jsonRoot.style.display = '';
+		jsonDoccument.style.display = '';
 		errorContainer.style.display = 'none';
 
-		jsonRoot.innerHTML = '';
+		jsonDoccument.innerHTML = '';
 		for (const note of json.editors || []) {
-			const rootElement = document.createElement('div');
-			rootElement.className = 'root';
-			jsonRoot.appendChild(rootElement);
-
-			const created = document.createElement('div');
-			created.className = 'created';
-			created.innerText = new Date(note.created).toUTCString();
-			rootElement.appendChild(created);
+			const rootObject = document.createElement('div');
+			rootObject.className = 'root';
+			jsonDoccument.appendChild(rootObject);
 
 			const deleteButton = document.createElement('button');
 			deleteButton.className = 'delete-button';
 			deleteButton.addEventListener('click', () => {
 				vscode.postMessage({ type: 'delete', id: note.id, });
 			});
-			rootElement.appendChild(deleteButton);
+			rootObject.appendChild(deleteButton);
 		}
 
-		jsonRoot.appendChild(addButtonContainer);
+		jsonDoccument.appendChild(addObjectButtonContainer);
+        jsonDoccument.appendChild(addArrayButtonContainer);
+        jsonDoccument.appendChild(addBooleanButtonContainer);
+        jsonDoccument.appendChild(addNumberButtonContainer);
 	}
 
 	// Handle messages sent from the extension to the webview

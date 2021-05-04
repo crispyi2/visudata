@@ -74,7 +74,7 @@ export class jsonEditorProvider implements vscode.CustomTextEditorProvider {
                     <title>Visudata Json Editor</title>
                 </head>
                 <body>
-                    <div id="editor">
+                    <div class="editor">
                         
                     </div>
                     <div id="menuBar">
